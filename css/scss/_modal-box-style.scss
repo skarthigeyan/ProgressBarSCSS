@@ -1,0 +1,55 @@
+@import 'mixins';
+.modal-background {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  padding: 0.5em;
+  text-align: center;
+  @include box-sizing;
+}
+
+.modal-outer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.modal {
+  position: relative;
+  background-color: white;
+  padding: 2em;
+  @include box-shadow;
+  margin: 0 auto;
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  @include box-sizing;
+  @include border-radius(12px);
+}
+
+.modal-button {
+  text-align: center;
+  background-color: rgb(70,70,180);
+  color: white;
+  padding: 0.5em 1em;
+  display: inline-block;
+  cursor: pointer;
+  @include border-radius(10px);
+}
+  .cancelAppClass {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: 0px;
+    text-align: center;
+    top: 0px;
+    width: 28px;
+    text-decoration: none;
+    font-weight: bold;
+    @include border-radius(12px);
+    @include box-shadow;
+  }
+
+  .cancelAppClass:hover { background: #00d9ff; }

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang='en-GB'>
+<head>
+  <meta charset='utf-8'>  
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0">
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <script src='scripts/ractive.js'></script>
+  <script src='scripts/ractive-transitions-fade.js'></script>
+  <script src='scripts/ractive-events-tap.js'></script>
+  <title>Progress Bar Demo</title>
+
+  <script id='template' type='text/html'>
+    {{#progresslist:i}}
+    <div id='output-block'>
+      <div style='border-style:solid;border-width:0.5mm;width:60%;'>
+        <div style='background-color: {{getColour(i)}};
+          width: {{((barValue>1?1:barValue)<0?0:(barValue>1?1:barValue))*100}}%;'><span class='center displayPercent'>
+        {{Math.round(barValue*100)}}%</span>
+        </div>
+      </div>
+    </div>
+      <br>
+    {{/progresslist}}
+    <div class='progresslist'>
+    <select id="progressid" class="progressbutton" value="{{selectedProgressBar}}">    
+      {{#each progresslist:i}}
+        <option value='{{name}}'>{{name}}</option>
+      {{/each}}      
+    </select>
+    <div class="button">
+    {{#incrementer:i}}
+        <button on-tap='updateProgressBar:{{this}},{{toUpdateBar}}'>{{Math.round(this*100)}}</button>&nbsp;&nbsp;&nbsp;
+    {{/incrementer}}
+    <button id="#openModal" on-tap='openPopUp'>Stop</button>
+    </div> 
+    </div>   
+       
+  </script>
+  <script id='modalTemplate' type='text/html'>
+  <div class='modal-background' on-tap='close' intro='fade' outro='fade'>
+      <div class='modal-outer'>
+        <div class='modal'>
+          {{>modalContent}}
+        </div>
+      </div>
+    </div>
+  </script>
+</head>
+
+<body>
+    <h1>Progress Bar Demo</h1>
+    <div id='container'   class='box'>
+    </div>
+    
+        <!-- LOAD OUR SCRIPT -->
+    <script src="scripts/script.js"></script>
+</body>
+</html>

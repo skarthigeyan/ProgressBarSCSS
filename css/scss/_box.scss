@@ -1,0 +1,26 @@
+@import 'mixins';
+$progressbar-color: #f4f4f4;
+$box-color: grey;
+.box{
+  margin: 3em auto 3em auto;
+  background-color: $box-color;
+  height: 50%;
+  width: 50%;
+  padding: 1.375em 0 1.375em 0;
+}
+#output-block{
+  >div{
+    margin: 0.5em auto 0.5em auto;
+    background-color: $progressbar-color;
+  }
+}
+.progresslist{
+  margin: 0.25em auto 0.25em auto;
+  div{
+    display:inline-block;
+  }  
+}
+
+.button button{
+  @include border-radius(2px);
+}

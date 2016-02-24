@@ -1,0 +1,29 @@
+@mixin center-content($displayPercent, $proglist, $divheight){
+    .displayPercent{
+      display: block;
+      margin: 0 $displayPercent;
+      padding-top: 0.3em;
+    }
+    .progresslist{
+      margin: 0.25em auto 0 $proglist;
+    }
+    .progresslist select{
+      margin: 0 0 1.25em 0;
+    }
+    .button button{
+      margin:0 0.25em 0.25em 0;
+    }
+    #output-block div {
+      height: $divheight;
+    }	
+}
+
+@media (max-width: 600px),(max-width: 700px){
+	@include center-content(4.5em, 3em, 1.2em);
+}
+@media (min-width: 701px) and (max-width: 1000px){
+	@include center-content(4em, 7em, 1.6em);
+}
+@media (min-width: 1001px){
+	@include center-content(12em, 9em, 1.6em);
+}
